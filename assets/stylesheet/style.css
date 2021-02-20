@@ -1,0 +1,135 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: normal;
+    box-sizing : border-box;
+}
+p, span{
+    font-size: 16px;
+}
+
+
+
+.popup-container{
+    padding: 10px;
+    width: 300px;
+}
+.popup-container>h3{
+    color: orange;
+    margin:auto;
+}
+
+
+
+.master-container{
+    text-align: justify;
+}
+
+
+
+.input-container{
+    margin-top: 10px;
+}
+.input-container>input{
+    border:2px solid black;
+    border-radius: 5px;
+    height: 30px;
+}
+.input-container>input:focus{
+    box-shadow:0 0 0 2px rgba(0,123,255,.25);
+    border: 1px solid #80bdff;
+    outline: none;
+}
+.input-container>button{
+    margin: auto;
+    width: 80px;
+    height: 30px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    margin-left: 5px;
+}
+.input-container>button:hover{
+    opacity: 0.8;
+}
+
+
+
+.generator-box{
+    border: 1px solid salmon;
+}
+
+
+
+
+
+.options-container{
+    margin: auto;
+    display: block;
+}
+
+.options-master{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 40px;
+    padding: 20px;
+    width: 800px;
+    max-width: 90%;
+    background-color: #f2f2f2;
+}
+.options-master>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+.options-master>img{
+    width: 20%;
+    height: 20%;
+}
+.options-master h1{
+    font-weight: bold;
+    color: orange;
+    margin:0;
+}
+.options-master h2{
+    margin: auto;
+}
+.options-master>h3{
+    margin: 5px;
+}
+.options-master input{
+    width: 100%;
+    border:2px solid black;
+    border-radius: 5px;
+    height: 35px;
+}
+.options-master input:focus{
+    box-shadow:0 0 0 2px rgba(0,123,255,.25);
+    border: 1px solid #80bdff;
+    outline: none;
+}
+.options-master button{
+    font-size: 16px;
+    margin: auto;
+    width: 120px;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.options-master button:hover{
+    opacity: 0.8;
+}
