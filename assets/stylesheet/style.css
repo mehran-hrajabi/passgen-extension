@@ -4,9 +4,7 @@
     font-weight: normal;
     box-sizing : border-box;
 }
-p, span{
-    font-size: 16px;
-}
+p, span{font-size: 16px;}
 
 
 
@@ -21,19 +19,16 @@ p, span{
 
 
 
-.master-container{
-    text-align: justify;
-}
+.master-container{text-align: justify;}
 
 
 
-.input-container{
-    margin-top: 10px;
-}
+.input-container{margin-top: 10px;}
 .input-container>input{
     border:2px solid black;
     border-radius: 5px;
     height: 30px;
+    padding: 5px;
 }
 .input-container>input:focus{
     box-shadow:0 0 0 2px rgba(0,123,255,.25);
@@ -52,15 +47,11 @@ p, span{
     cursor: pointer;
     margin-left: 5px;
 }
-.input-container>button:hover{
-    opacity: 0.8;
-}
+.input-container>button:hover{opacity: 0.8;}
 
 
 
-.generator-box{
-    border: 1px solid salmon;
-}
+.generator-box{border: 1px solid salmon;}
 
 
 
@@ -95,22 +86,26 @@ p, span{
     width: 20%;
     height: 20%;
 }
+hr:first-child, hr:nth-child(2){
+    position: absolute;
+    top: 41.5%;
+    width: 28%;
+}
+hr:first-child{right: 10%;}
+hr:nth-child(2){left: 10%;}
 .options-master h1{
     font-weight: bold;
     color: orange;
     margin:0;
 }
-.options-master h2{
-    margin: auto;
-}
-.options-master>h3{
-    margin: 5px;
-}
+.options-master h2{margin: auto;}
+.options-master>h3{margin: 5px;}
 .options-master input{
     width: 100%;
     border:2px solid black;
     border-radius: 5px;
     height: 35px;
+    padding: 10px;
 }
 .options-master input:focus{
     box-shadow:0 0 0 2px rgba(0,123,255,.25);
@@ -128,8 +123,13 @@ p, span{
     background-color: green;
     color: white;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 15px;
 }
-.options-master button:hover{
-    opacity: 0.8;
+.options-master button:hover{opacity: 0.8;}
+#master-success{color: green;}
+.fade{
+    opacity: 0;
+    transition: opacity 1500ms;
 }
+.show{display: block;}
+.hide{display: none;}
