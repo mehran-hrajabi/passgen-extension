@@ -51,7 +51,30 @@ p, span{font-size: 16px;}
 
 
 
-.generator-box{border: 1px solid salmon;}
+.output-container{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.output-container input{
+    border:2px solid black;
+    border-radius: 5px;
+    height: 30px;
+    width: 100%;
+}
+.output-container img{
+    z-index: 1;
+    margin-left: -23.5px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-color: white;
+}
+.output-container img:active{
+    width: 19px;
+    height: 19px;
+}
 
 
 
