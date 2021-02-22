@@ -4,7 +4,7 @@
     font-weight: normal;
     box-sizing : border-box;
 }
-p, span{font-size: 16px;}
+p, span, ::placeholder{font-size: 16px;}
 
 
 
@@ -17,11 +17,7 @@ p, span{font-size: 16px;}
     margin:auto;
 }
 
-
-
 .master-container{text-align: justify;}
-
-
 
 .input-container{margin-top: 10px;}
 .input-container>input{
@@ -46,10 +42,10 @@ p, span{font-size: 16px;}
     color: white;
     cursor: pointer;
     margin-left: 5px;
+    font-weight: bold;
+    font-size: 14px;
 }
 .input-container>button:hover{opacity: 0.8;}
-
-
 
 .output-container{
     margin-top: 10px;
@@ -75,8 +71,6 @@ p, span{font-size: 16px;}
     width: 19px;
     height: 19px;
 }
-
-
 
 
 
@@ -154,14 +148,15 @@ p, span{font-size: 16px;}
 }
 .options-body button:hover{opacity: 0.8;}
 #master-success, #hash-success{color: green;}
+#masterError, #hashError, #twoErrors{color: red;}
 .fade{
     opacity: 0;
     transition: opacity 1500ms;
 }
 .show{visibility: visible;}
 .hide{visibility: hidden;}
-
-
+.remove{display: none;}
+.create{display: block;}
 
 .options-about{
     display: flex;
@@ -176,9 +171,5 @@ p, span{font-size: 16px;}
     margin-right: 80px;
     transition-duration: 0.5s;
 }
-.options-about a:last-child{
-    margin-right: 0;
-}
-.options-about a:hover{
-    color: dodgerblue;
-}
+.options-about a:last-child{margin-right: 0;}
+.options-about a:hover{color: dodgerblue;}
