@@ -85,7 +85,7 @@ p, span{font-size: 16px;}
     display: block;
 }
 
-.options-master{
+.options-body{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -98,40 +98,48 @@ p, span{font-size: 16px;}
     max-width: 90%;
     background-color: #f2f2f2;
 }
-.options-master>div{
+.options-body>div{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-top: 50px;
 }
-.options-master>img{
+.options-body>img{
     width: 20%;
     height: 20%;
 }
-.options-master h1{
+.options-body h1{
     font-weight: bold;
     color: orange;
     margin:0;
 }
-.options-master h2{
+.options-body h2{
     margin: auto;
     font-weight: bold;
 }
-.options-master>h3{margin: 5px;}
-.options-master input{
+.options-body>h3{margin: 5px;}
+.options-body input{
     width: 100%;
     border:2px solid black;
     border-radius: 5px;
     height: 35px;
     padding: 10px;
 }
-.options-master input:focus{
+.options-body input:focus, .options-body select:focus{
     box-shadow:0 0 0 2px rgba(0,123,255,.25);
     border: 1px solid #80bdff;
     outline: none;
 }
-.options-master button{
+.options-body select{
+    width: 80%;
+    height: 35px;
+    border:2px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    padding-left: 5px;
+}
+.options-body button{
     font-size: 16px;
     margin: auto;
     width: 120px;
@@ -144,14 +152,14 @@ p, span{font-size: 16px;}
     cursor: pointer;
     margin-top: 15px;
 }
-.options-master button:hover{opacity: 0.8;}
-#master-success{color: green;}
+.options-body button:hover{opacity: 0.8;}
+#master-success, #hash-success{color: green;}
 .fade{
     opacity: 0;
     transition: opacity 1500ms;
 }
-.show{display: block;}
-.hide{display: none;}
+.show{visibility: visible;}
+.hide{visibility: hidden;}
 
 
 

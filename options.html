@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="options-container">
-        <div class="options-master">
+        <div class="options-body">
             <img src="./assets/images/icon128.png">
             <h1>Passgen</h1>
             <h3>Version 1.0</h3>
@@ -18,9 +18,24 @@
                 <h2>Set Master Password</h2>
                 <p>You can set your master password here.</p>
                 <input id="master-input" type="text" value="" placeholder="Enter your master password.">
-                <button id="master-button" type="button">Save</button>
+                <button id="master-btn" type="button">Save</button>
                 <p class="hide" id="master-success">Your master password has been saved!</p>
             </div>
+
+            
+            <div>
+                <h2>Choose Hashing Algorithm</h2>
+                <p>You can set the hashing algorithm here.</p>
+                <select id="algo">
+                    <option value="SHA-1">SHA-1</option>
+                    <option value="SHA-256">SHA-256</option>
+                    <option value="SHA-384">SHA-384</option>
+                    <option value="SHA-512">SHA-512</option>
+                </select>
+                <button id="algo-btn" type="button">Save</button>
+                <p class="hide" id="hash-success">Hashing algorithm has been set!</p>
+            </div>
+
             <div class="options-about">
                 <h2>About</h2>
                 <p>Passgen is a Chrome extension to generate secure passwords using Secure Hash Algorithms.</p>
@@ -30,7 +45,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </body>
 <script src="./assets/script/options.js"></script>
