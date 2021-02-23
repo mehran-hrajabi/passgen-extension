@@ -6,15 +6,8 @@ const masterInput = document.querySelector("#master-input");
 const hashSelect = document.querySelector("#algo");
 
 setMasterBtn.addEventListener("click",function(){
-    chrome.storage.sync.get(['master','algorithm'], function(vars){
-        if(vars.algorithm == undefined){
-            console.log("y");
-        }
-        console.log(vars.master);
-        console.log(vars.algorithm);
-    });
     if(masterInput.value){
-        chrome.storage.sync.set({'master': masterInput.value}, function(pass){
+        chrome.storage.sync.set({'master': masterInput.value}, function(){
             console.log("Master password has been set.");
         });
 

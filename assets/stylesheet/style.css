@@ -148,7 +148,7 @@ p, span, ::placeholder{font-size: 16px;}
 }
 .options-body button:hover{opacity: 0.8;}
 #master-success, #hash-success{color: green;}
-#masterError, #hashError, #twoErrors{color: red;}
+#masterError, #twoErrors{color: red;}
 .fade{
     opacity: 0;
     transition: opacity 1500ms;
