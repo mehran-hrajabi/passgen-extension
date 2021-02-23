@@ -7,7 +7,7 @@ const hashSelect = document.querySelector("#algo");
 
 setMasterBtn.addEventListener("click",function(){
     if(masterInput.value){
-        chrome.storage.sync.set({'master': masterInput.value}, function(pass){
+        chrome.storage.sync.set({'master': masterInput.value}, function(){
             console.log("Master password has been set.");
         });
 

@@ -13,17 +13,11 @@
 
         <div class="master-container">
             <p>Set your master password and hashing algorithm in options page.</p>
-            <li>
-                <span>Your master password:</span>
-                <span id="masterPass"></span>                  
-            </li>
         </div>
 
         <div class="hash-container">
-            <li>
-                <span>Current hashing algorithm:</span>
-                <span id="showHashAlgo"></span>                
-            </li>
+            <span>Current hashing algorithm:</span>
+            <span id="showHashAlgo"></span>                
         </div>
 
         <div class="input-container">
@@ -34,6 +28,10 @@
         <div class="output-container">
             <input type="text" id="outputHash" readonly>
             <img id="copy-to-clipboard" src="./assets/images/copy.png">
+        </div>
+
+        <div class="msg-container">
+            <p class="remove" id="masterError">You should set your master password first!</p>
         </div>
     </div>
 </body>
