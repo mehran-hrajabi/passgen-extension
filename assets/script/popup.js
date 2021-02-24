@@ -4,6 +4,7 @@ const nameInput = document.querySelector("#nameInput");
 const outputHash = document.querySelector("#outputHash");
 const copyImg = document.querySelector("#copy-to-clipboard");
 const masterPassError = document.querySelector("#masterError");
+const copyTooltip = document.querySelector("#tooltip-copy");
 let algo, master;
 
 chrome.storage.sync.get(['master','algorithm'], function(vars){
@@ -52,6 +53,15 @@ async function digestMessage(message) {
 }
 
 copyImg.addEventListener("click",function copyToClipboard(){
-    outputHash.select();
-    document.execCommand("copy");
+    if(outputHash.value){
+        outputHash.select();
+        document.execCommand("copy");
+
+        copyTooltip.classList.remove("remove");
+        copyTooltip.classList.add("create");
+        setTimeout(function(){
+            copyTooltip.classList.add("remove");
+            copyTooltip.classList.remove("create");
+        },900);        
+    }
 });

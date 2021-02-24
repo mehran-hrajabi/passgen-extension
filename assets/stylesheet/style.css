@@ -4,25 +4,40 @@
     font-weight: normal;
     box-sizing : border-box;
 }
-p, span, ::placeholder{font-size: 16px;}
+p, span,a, ::placeholder{font-size: 16px;}
+h1,h2{font-weight: bold;}
+button{
+    outline: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+button:hover{opacity: 0.8;}
+input, button, select, #tooltip-copy{border-radius: 5px;}
+.fade{
+    opacity: 0;
+    transition: opacity 1500ms;
+}
+.show{visibility: visible;}
+.hide{visibility: hidden;}
+.remove{display: none;}
+.create{display: block;}
 
 
 
 .popup-container{
     padding: 10px;
     width: 300px;
+    height: 225px;
 }
 .popup-container>h3{
     color: orange;
     margin:auto;
 }
-
 .master-container{text-align: justify;}
-
 .input-container{margin-top: 10px;}
 .input-container>input{
     border:2px solid black;
-    border-radius: 5px;
     height: 30px;
     padding: 5px;
 }
@@ -35,19 +50,12 @@ p, span, ::placeholder{font-size: 16px;}
     margin: auto;
     width: 80px;
     height: 30px;
-    outline: none;
-    border: none;
-    border-radius: 5px;
     background-color: green;
-    color: white;
-    cursor: pointer;
     margin-left: 5px;
-    font-weight: bold;
     font-size: 14px;
 }
-.input-container>button:hover{opacity: 0.8;}
-
 .output-container{
+    position: relative;
     margin-top: 10px;
     display: flex;
     flex-direction: row;
@@ -55,12 +63,11 @@ p, span, ::placeholder{font-size: 16px;}
 }
 .output-container input{
     border:2px solid black;
-    border-radius: 5px;
     height: 30px;
     width: 100%;
 }
 .output-container img{
-    z-index: 1;
+    z-index: 2;
     margin-left: -23.5px;
     width: 20px;
     height: 20px;
@@ -71,6 +78,37 @@ p, span, ::placeholder{font-size: 16px;}
     width: 19px;
     height: 19px;
 }
+#tooltip-copy{
+    position: absolute;
+    background-color: black;
+    color: white;
+    text-align: center;
+    width: 60px;
+    padding: 5px;
+    z-index: 1;
+    top: 100%;
+    left: 77%;
+    margin: 5px 0;
+    font-size: 13px;
+    animation-name: tooltip;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+}
+#tooltip-copy::after{
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 77%;
+    border: 5px solid black;
+    border-color: transparent transparent black transparent;
+}
+@keyframes tooltip {
+    0%   {left:77%; top:90%; display: block;}
+    25%  {left:77%; top:100%; display: block;}
+    50%  {left:77%; top:100%; display: block;}
+    75%  {left:77%; top:100%; display: block;}
+    100% {left:77%; top:110%; display: none;}
+}
 
 
 
@@ -78,7 +116,6 @@ p, span, ::placeholder{font-size: 16px;}
     margin: auto;
     display: block;
 }
-
 .options-body{
     display: flex;
     flex-direction: column;
@@ -104,19 +141,14 @@ p, span, ::placeholder{font-size: 16px;}
     height: 20%;
 }
 .options-body h1{
-    font-weight: bold;
     color: orange;
     margin:0;
 }
-.options-body h2{
-    margin: auto;
-    font-weight: bold;
-}
+.options-body h2{margin: auto;}
 .options-body>h3{margin: 5px;}
 .options-body input{
     width: 100%;
     border:2px solid black;
-    border-radius: 5px;
     height: 35px;
     padding: 10px;
 }
@@ -129,7 +161,6 @@ p, span, ::placeholder{font-size: 16px;}
     width: 80%;
     height: 35px;
     border:2px solid black;
-    border-radius: 5px;
     cursor: pointer;
     padding-left: 5px;
 }
@@ -138,26 +169,11 @@ p, span, ::placeholder{font-size: 16px;}
     margin: auto;
     width: 120px;
     height: 40px;
-    outline: none;
-    border: none;
-    border-radius: 5px;
     background-color: green;
-    color: white;
-    cursor: pointer;
     margin-top: 15px;
 }
-.options-body button:hover{opacity: 0.8;}
 #master-success, #hash-success{color: green;}
 #masterError, #twoErrors{color: red;}
-.fade{
-    opacity: 0;
-    transition: opacity 1500ms;
-}
-.show{visibility: visible;}
-.hide{visibility: hidden;}
-.remove{display: none;}
-.create{display: block;}
-
 .options-about{
     display: flex;
     flex-direction: column;
@@ -167,7 +183,6 @@ p, span, ::placeholder{font-size: 16px;}
 .options-about a{
     text-decoration: none;
     font-weight: bold;
-    font-size: 16px;
     margin-right: 80px;
     transition-duration: 0.5s;
 }
