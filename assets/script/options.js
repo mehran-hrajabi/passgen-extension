@@ -5,6 +5,10 @@ const savedHashFeedback = document.querySelector("#hash-success");
 const masterInput = document.querySelector("#master-input");
 const hashSelect = document.querySelector("#algo");
 
+chrome.storage.sync.get('algorithm', function(vars){
+    document.getElementById(vars.algorithm).selected = true;
+});
+
 setMasterBtn.addEventListener("click",function(){
     if(masterInput.value){
         chrome.storage.sync.set({'master': masterInput.value}, function(){
