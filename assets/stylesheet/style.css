@@ -5,7 +5,7 @@
     box-sizing : border-box;
 }
 p, span,a, ::placeholder{font-size: 16px;}
-h1,h2{font-weight: bold;}
+h1,h2,h3{font-weight: bold;}
 button{
     outline: none;
     border: none;
@@ -22,18 +22,66 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
 .hide{visibility: hidden;}
 .remove{display: none;}
 .create{display: block;}
+.dark{
+    color: white;
+    background-color: #111;
+}
+.light{
+    color: #111;
+    background-color: white;
+}
 
 
 
 .popup-container{
     padding: 10px;
     width: 300px;
-    height: 225px;
+    height: 250px;
 }
-.popup-container>h3{
+.popup-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.popup-header h3{
+    font-style: oblique;
     color: orange;
-    margin:auto;
 }
+.popup-header span{
+    font-size: 14px;
+    font-style: italic;
+}
+.mode-switch {
+    position: relative;
+    display: inline-block;
+    height: 26px;
+    width: 40px;
+}
+.mode-slider {
+    position: absolute;
+    cursor: pointer;
+    background-color: #ccc;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    transition: 0.5s;
+}
+.mode-slider:before {
+    content: "";
+    position: absolute;
+    background-color: white;
+    height: 18px;
+    width: 18px;
+    bottom: 4px;
+    left: 4px;
+    transition: 0.5s;
+}
+#checkMode:checked + .mode-slider {background-color: #66bb6a;}
+#checkMode:checked + .mode-slider:before {transform: translateX(14px);}
+.test{background-color: #66bb6a;}
+.round {border-radius: 25px;}
+.round:before {border-radius: 80%;}
 .master-container{text-align: justify;}
 .input-container{margin-top: 10px;}
 .input-container>input{
@@ -50,7 +98,7 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
     margin: auto;
     width: 80px;
     height: 30px;
-    background-color: green;
+    background-color: #66bb6a;
     margin-left: 5px;
     font-size: 14px;
 }
@@ -58,7 +106,6 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
     position: relative;
     margin-top: 10px;
     display: flex;
-    flex-direction: row;
     align-items: center;
 }
 .output-container input{
@@ -80,9 +127,9 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
 }
 #tooltip-copy{
     position: absolute;
+    text-align: center;
     background-color: black;
     color: white;
-    text-align: center;
     width: 60px;
     padding: 5px;
     z-index: 1;

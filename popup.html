@@ -7,9 +7,20 @@
     <title>Passgen</title>
     <link rel="stylesheet" type="text/css" href="./assets/stylesheet/style.css">
 </head>
-<body>
+<body id="body">
     <div class="popup-container">
-        <h3>Passgen v1.0</h3>
+        <div class="popup-header">
+            <h3>Passgen v1.0</h3>
+            <div>
+                <span>Dark Mode:</span>
+                <label class="mode-switch">
+                    <input type="checkbox" id="checkMode" />
+                    <div class="mode-slider round"></div>
+                </label>                
+            </div>
+
+        </div>
+
 
         <div class="master-container">
             <p>Set your master password and hashing algorithm in options page.</p>

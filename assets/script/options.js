@@ -5,15 +5,15 @@ const savedHashFeedback = document.querySelector("#hash-success");
 const masterInput = document.querySelector("#master-input");
 const hashSelect = document.querySelector("#algo");
 
+//Show default algorithm in dropdown menu
 chrome.storage.sync.get('algorithm', function(vars){
     document.getElementById(vars.algorithm).selected = true;
 });
 
+//Set master password button
 setMasterBtn.addEventListener("click",function(){
     if(masterInput.value){
-        chrome.storage.sync.set({'master': masterInput.value}, function(){
-            console.log("Master password has been set.");
-        });
+        chrome.storage.sync.set({'master': masterInput.value});
 
         masterInput.value="";
 
@@ -32,11 +32,10 @@ setMasterBtn.addEventListener("click",function(){
     }
 });
 
+//Set hashing algorithm
 setHashAlgo.addEventListener("click",function(){
     if(hashSelect.value){
-        chrome.storage.sync.set({'algorithm': hashSelect.value}, function(pass){
-            console.log("Hashing algorithm has been set!");
-        });
+        chrome.storage.sync.set({'algorithm': hashSelect.value});
     }
 
     savedHashFeedback.classList.remove("hide");
