@@ -12,7 +12,6 @@ button{
     cursor: pointer;
     color: white;
 }
-button:hover{opacity: 0.8;}
 input, button, select, #tooltip-copy{border-radius: 5px;}
 .fade{
     opacity: 0;
@@ -22,28 +21,50 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
 .hide{visibility: hidden;}
 .remove{display: none;}
 .create{display: block;}
+
 .dark{
     color: white;
-    background-color: #111;
+    background-color: #121212;
 }
 .light{
     color: #111;
     background-color: white;
 }
-
+.input-darkMode{background-color: #F2F2F2;}
+.input-lightMode{background-color: white;}
+.btn-darkMode{background-color: #7ab979;}
+.btn-darkMode:hover{background-color: #11A200;}
+.btn-lightMode{background-color: #11A200;}
+.btn-lightMode:hover{opacity: 0.8;}
+.tooltip-dark{
+    background-color: white;
+    color: black;
+}
+.tooltip-dark::after{
+    border: 5px solid #F2F2F2;
+    border-color: transparent transparent #F2F2F2 transparent;
+}
+.tooltip-light{
+    background-color: #121212;
+    color: white;
+}
+.tooltip-light::after{
+    border: 5px solid #121212;
+    border-color: transparent transparent #121212 transparent;
+}
 
 
 .popup-container{
     padding: 10px;
     width: 300px;
-    height: 250px;
+    height: 265px;
 }
 .popup-header{
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.popup-header h3{
+.popup-header h2{
     font-style: oblique;
     color: orange;
 }
@@ -67,7 +88,7 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
     top: 0;
     transition: 0.5s;
 }
-.mode-slider:before {
+.mode-slider::before {
     content: "";
     position: absolute;
     background-color: white;
@@ -78,10 +99,10 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
     transition: 0.5s;
 }
 #checkMode:checked + .mode-slider {background-color: #66bb6a;}
-#checkMode:checked + .mode-slider:before {transform: translateX(14px);}
+#checkMode:checked + .mode-slider::before {transform: translateX(14px);}
 .test{background-color: #66bb6a;}
 .round {border-radius: 25px;}
-.round:before {border-radius: 80%;}
+.round::before {border-radius: 80%;}
 .master-container{text-align: justify;}
 .input-container{margin-top: 10px;}
 .input-container>input{
@@ -89,16 +110,11 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
     height: 30px;
     padding: 5px;
 }
-.input-container>input:focus{
-    box-shadow:0 0 0 2px rgba(0,123,255,.25);
-    border: 1px solid #80bdff;
-    outline: none;
-}
+.input-container>input:focus{outline: none;}
 .input-container>button{
     margin: auto;
     width: 80px;
     height: 30px;
-    background-color: #66bb6a;
     margin-left: 5px;
     font-size: 14px;
 }
@@ -110,6 +126,7 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
 }
 .output-container input{
     border:2px solid black;
+    outline: none;
     height: 30px;
     width: 100%;
 }
@@ -128,8 +145,6 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
 #tooltip-copy{
     position: absolute;
     text-align: center;
-    background-color: black;
-    color: white;
     width: 60px;
     padding: 5px;
     z-index: 1;
@@ -146,8 +161,6 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
     position: absolute;
     bottom: 100%;
     left: 77%;
-    border: 5px solid black;
-    border-color: transparent transparent black transparent;
 }
 @keyframes tooltip {
     0%   {left:77%; top:90%; display: block;}
@@ -219,6 +232,7 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
     background-color: green;
     margin-top: 15px;
 }
+.options-body button:hover{opacity: 0.8;}
 #master-success, #hash-success{color: green;}
 #masterError, #twoErrors{color: red;}
 .options-about{

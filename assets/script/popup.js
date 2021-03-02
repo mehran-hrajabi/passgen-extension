@@ -17,13 +17,11 @@ chrome.storage.sync.get(['master','algorithm','isDark'], function(vars){
         chrome.storage.sync.set({'isDark': false});
     }
     if(vars.isDark){
-        body.classList.remove("light");
-        body.classList.add("dark");
         darkMode.checked = true;
+        setDarkThemeClasses();
     }
     else if(!vars.isDark){
-        body.classList.remove("dark");
-        body.classList.add("light");
+        setLightThemeClasses();
     }
     
     //Hashing algorithm and master password
@@ -42,20 +40,39 @@ chrome.storage.sync.get(['master','algorithm','isDark'], function(vars){
 
 //Enable or disable dark mode
 darkMode.addEventListener("change", function darkModeHandler(){
+    chrome.storage.sync.set({'isDark': darkMode.checked});
     if(darkMode.checked){
-        chrome.storage.sync.set({'isDark': false}, function(){
-            body.classList.remove("light");
-            body.classList.add("dark");
-        });
+        setDarkThemeClasses();
     }
     else if(!darkMode.checked){
-        chrome.storage.sync.set({'isDark': true}, function(){
-            body.classList.remove("dark");
-            body.classList.add("light");
-        });
+        setLightThemeClasses();
     }
-    chrome.storage.sync.set({'isDark': darkMode.checked});
 });
+
+function setDarkThemeClasses(){
+    body.classList.remove("light");
+    body.classList.add("dark");
+    outputHash.classList.remove("input-lightMode");
+    outputHash.classList.add("input-darkMode");
+    nameInput.classList.remove("input-lightMode");
+    nameInput.classList.add("input-darkMode");
+    passwordGenerator.classList.remove("btn-lightMode");
+    passwordGenerator.classList.add("btn-darkMode");
+    copyTooltip.classList.remove("tooltip-light");
+    copyTooltip.classList.add("tooltip-dark");
+}
+function setLightThemeClasses(){
+    body.classList.remove("dark");
+    body.classList.add("light");
+    outputHash.classList.remove("input-darkMode");
+    outputHash.classList.add("input-lightMode");
+    nameInput.classList.remove("input-darkMode");
+    nameInput.classList.add("input-lightMode");
+    passwordGenerator.classList.remove("btn-darkMode");
+    passwordGenerator.classList.add("btn-lightMode");
+    copyTooltip.classList.remove("tooltip-dark");
+    copyTooltip.classList.add("tooltip-light");
+}
 
 //Generate password
 passwordGenerator.addEventListener("click",async function(){
