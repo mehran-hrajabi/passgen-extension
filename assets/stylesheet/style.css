@@ -1,3 +1,4 @@
+/*Universal styles*/
 *{
     font-family: 'Times New Roman', Times, serif;
     font-style: normal;
@@ -13,15 +14,30 @@ button{
     color: white;
 }
 input, button, select, #tooltip-copy{border-radius: 5px;}
-.fade{
-    opacity: 0;
-    transition: opacity 1500ms;
-}
+
+/*Utility classes*/
 .show{visibility: visible;}
 .hide{visibility: hidden;}
 .remove{display: none;}
 .create{display: block;}
+.fade{
+    opacity: 0;
+    transition: opacity 1500ms;
+}
 
+/*CSS flex classes*/
+.center-vertically{
+    display: flex;
+    align-items: center;
+}
+.center-horizontally{
+    display: flex;
+    justify-content: center;
+}
+.space-horizontally{justify-content: space-between;}
+.flex-col{flex-direction: column;}
+
+/*Dark and light mode classes*/
 .dark{
     color: white;
     background-color: #121212;
@@ -38,7 +54,7 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
 .btn-lightMode:hover{opacity: 0.8;}
 .tooltip-dark{
     background-color: white;
-    color: black;
+    color: #121212;
 }
 .tooltip-dark::after{
     border: 5px solid #F2F2F2;
@@ -53,16 +69,11 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
     border-color: transparent transparent #121212 transparent;
 }
 
-
+/*Extension classes*/
 .popup-container{
     padding: 10px;
     width: 300px;
     height: 265px;
-}
-.popup-header{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 .popup-header h2{
     font-style: oblique;
@@ -70,15 +81,15 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
 }
 .popup-header span{
     font-size: 14px;
-    font-style: italic;
+    font-style: oblique;
 }
-.mode-switch {
+.mode-switch{
     position: relative;
     display: inline-block;
     height: 26px;
     width: 40px;
 }
-.mode-slider {
+.mode-slider{
     position: absolute;
     cursor: pointer;
     background-color: #ccc;
@@ -88,7 +99,7 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
     top: 0;
     transition: 0.5s;
 }
-.mode-slider::before {
+.mode-slider::before{
     content: "";
     position: absolute;
     background-color: white;
@@ -98,12 +109,10 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
     left: 4px;
     transition: 0.5s;
 }
-#checkMode:checked + .mode-slider {background-color: #66bb6a;}
-#checkMode:checked + .mode-slider::before {transform: translateX(14px);}
-.test{background-color: #66bb6a;}
-.round {border-radius: 25px;}
-.round::before {border-radius: 80%;}
-.master-container{text-align: justify;}
+#checkMode:checked + .mode-slider{background-color: #66bb6a;}
+#checkMode:checked + .mode-slider::before{transform: translateX(14px);}
+.round{border-radius: 25px;}
+.round::before{border-radius: 80%;}
 .input-container{margin-top: 10px;}
 .input-container>input{
     border:2px solid black;
@@ -121,11 +130,9 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
 .output-container{
     position: relative;
     margin-top: 10px;
-    display: flex;
-    align-items: center;
 }
 .output-container input{
-    border:2px solid black;
+    border: 2px solid black;
     outline: none;
     height: 30px;
     width: 100%;
@@ -162,7 +169,7 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
     bottom: 100%;
     left: 77%;
 }
-@keyframes tooltip {
+@keyframes tooltip{
     0%   {left:77%; top:90%; display: block;}
     25%  {left:77%; top:100%; display: block;}
     50%  {left:77%; top:100%; display: block;}
@@ -170,17 +177,9 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
     100% {left:77%; top:110%; display: none;}
 }
 
-
-
-.options-container{
-    margin: auto;
-    display: block;
-}
+/*Options classes*/
+.options-container{margin: auto;}
 .options-body{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     margin: auto;
     border: 2px solid black;
     border-radius: 40px;
@@ -189,13 +188,7 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
     max-width: 90%;
     background-color: #f2f2f2;
 }
-.options-body>div{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-}
+.options-body>div{margin-top: 50px;}
 .options-body>img{
     width: 20%;
     height: 20%;
@@ -220,7 +213,7 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
 .options-body select{
     width: 80%;
     height: 35px;
-    border:2px solid black;
+    border: 2px solid black;
     cursor: pointer;
     padding-left: 5px;
 }
@@ -235,17 +228,7 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
 .options-body button:hover{opacity: 0.8;}
 #master-success, #hash-success{color: green;}
 #masterError, #twoErrors{color: red;}
-.options-about{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-bottom: 50px;
-}
-.options-about > div{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
+.options-about{padding-bottom: 50px;}
 .options-about button{
     color: black;
     width: 175px;

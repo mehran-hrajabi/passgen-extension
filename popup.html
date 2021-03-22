@@ -7,42 +7,35 @@
     <title>Passgen</title>
     <link rel="stylesheet" type="text/css" href="./assets/stylesheet/style.css">
 </head>
+
 <body id="body">
     <div class="popup-container">
-        <div class="popup-header">
+        <div class="popup-header center-vertically space-horizontally">
             <h2>Passgen v1.1</h2>
             <div>
                 <span>Dark Mode:</span>
                 <label class="mode-switch">
                     <input type="checkbox" id="checkMode" />
                     <div class="mode-slider round"></div>
-                </label>                
+                </label>
+            </div>
+        </div>
+
+        <div class="pass-generator">
+            <span>Current hashing algorithm:</span>
+            <span id="showHashAlgo"></span>
+
+            <div class="input-container">
+                <input type="text" id="nameInput" placeholder="Enter any name">
+                <button type="button" id="passGen">Generate</button>
             </div>
 
-        </div>
+            <div class="output-container center-vertically">
+                <input type="text" id="outputHash"  readonly>
+                <img id="copy-to-clipboard" src="./assets/images/copy.png">
+                <span class="remove" id="tooltip-copy">Copied!</span>
+            </div>
 
-
-        <div class="master-container">
-            <p>Set your master password and hashing algorithm in options page.</p>
-        </div>
-
-        <div class="hash-container">
-            <span>Current hashing algorithm:</span>
-            <span id="showHashAlgo"></span>                
-        </div>
-
-        <div class="input-container">
-            <input type="text" id="nameInput" placeholder="Enter any name">
-            <button type="button" id="passGen">Generate</button>
-        </div>
-
-        <div class="output-container">
-            <input type="text" id="outputHash"  readonly>
-            <img id="copy-to-clipboard" src="./assets/images/copy.png">
-            <span class="remove" id="tooltip-copy">Copied!</span>
-        </div>
-
-        <div class="msg-container">
             <p class="remove" id="masterError">You should set your master password first!</p>
         </div>
     </div>

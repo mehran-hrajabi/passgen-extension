@@ -9,12 +9,12 @@
 </head>
 <body>
     <div class="options-container">
-        <div class="options-body">
+        <div class="options-body center-horizontally center-vertically flex-col">
             <img src="./assets/images/icon128.png">
             <h1>Passgen</h1>
             <h3>Version 1.1</h3>
 
-            <div>
+            <div class="flex-col center-horizontally center-vertically">
                 <h2>Set Master Password</h2>
                 <p>You can set your master password here.</p>
                 <input id="master-input" type="text" value="" placeholder="Enter your master password.">
@@ -23,7 +23,7 @@
             </div>
 
             
-            <div>
+            <div class="flex-col center-horizontally center-vertically">
                 <h2>Choose Hashing Algorithm</h2>
                 <p>You can set the hashing algorithm here.</p>
                 <select id="algo">
@@ -36,10 +36,10 @@
                 <p class="hide" id="hash-success">Hashing algorithm has been set!</p>
             </div>
 
-            <div class="options-about">
+            <div class="options-about flex-col center-vertically">
                 <h2>About</h2>
                 <p>Passgen is a Chrome extension to generate secure passwords using Secure Hash Algorithms.</p>
-                <div>
+                <div class="center-vertically">
                     <a href="https://github.com/passgenio/passgen-extension" target="_blank">
                         <button>★ Star on Github</button>   
                     </a>
