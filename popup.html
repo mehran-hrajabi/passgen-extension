@@ -10,6 +10,7 @@
 
 <body id="body">
     <div class="popup-container">
+        <!--Popup Header-->
         <div class="popup-header center-vertically space-horizontally">
             <h2>Passgen v1.1</h2>
             <div>
@@ -21,22 +22,44 @@
             </div>
         </div>
 
+        <!--Generate Password-->
         <div class="pass-generator">
             <span>Current hashing algorithm:</span>
             <span id="showHashAlgo"></span>
 
             <div class="input-container">
                 <input type="text" id="nameInput" placeholder="Enter any name">
-                <button type="button" id="passGen">Generate</button>
+                <button class="popup-btns" type="button" id="passGen">Generate</button>
             </div>
 
             <div class="output-container center-vertically">
-                <input type="text" id="outputHash"  readonly>
+                <input class="popup-inputs" type="text" id="outputHash"  readonly>
                 <img id="copy-to-clipboard" src="./assets/images/copy.png">
                 <span class="remove" id="tooltip-copy">Copied!</span>
             </div>
 
             <p class="remove" id="masterError">You should set your master password first!</p>
+        </div>
+
+        <!--Set Master Password-->
+        <div class="master-pass">
+            <h2>Set Master Password</h2>
+            <input class="popup-inputs" id="masterInput" type="text" value="" placeholder="Enter your master pass">
+            <button class="popup-btns" id="masterSet" type="button">Save</button>
+            <p class="hide popup-success" id="masterSuccess">Your master password has been saved!</p>
+        </div>
+
+        <!--Set Hashing Algorithm-->
+        <div class="hash-algo">
+            <h2>Choose Hashing Algorithm</h2>
+            <select class="popup-inputs" id="algo">
+                <option value="SHA-1" id="SHA-1">SHA-1</option>
+                <option value="SHA-256" id="SHA-256">SHA-256</option>
+                <option value="SHA-384" id="SHA-384">SHA-384</option>
+                <option value="SHA-512" id="SHA-512">SHA-512</option>
+            </select>
+            <button class="popup-btns" id="algoBtn" type="button">Save</button>
+            <p class="hide popup-success" id="hashSuccess">Hashing algorithm has been set!</p>
         </div>
     </div>
 </body>

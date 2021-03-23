@@ -52,6 +52,8 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
 .btn-darkMode:hover{background-color: #11A200;}
 .btn-lightMode{background-color: #11A200;}
 .btn-lightMode:hover{opacity: 0.8;}
+.success-darkMode{color: #7ab979;}
+.success-lightMode{color: #11A200;}
 .tooltip-dark{
     background-color: white;
     color: #121212;
@@ -73,7 +75,7 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
 .popup-container{
     padding: 10px;
     width: 300px;
-    height: 265px;
+    height: 400px;
 }
 .popup-header h2{
     font-style: oblique;
@@ -113,20 +115,20 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
 #checkMode:checked + .mode-slider::before{transform: translateX(14px);}
 .round{border-radius: 25px;}
 .round::before{border-radius: 80%;}
-.input-container{margin-top: 10px;}
-.input-container>input{
+.popup-container input[type=text]{
     border:2px solid black;
     height: 30px;
     padding: 5px;
 }
-.input-container>input:focus{outline: none;}
-.input-container>button{
+.popup-container input[type=text]:focus{outline: none;}
+.popup-container button{
     margin: auto;
     width: 80px;
     height: 30px;
     margin-left: 5px;
     font-size: 14px;
 }
+.input-container{margin-top: 10px;}
 .output-container{
     position: relative;
     margin-top: 10px;
@@ -176,6 +178,14 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
     75%  {left:77%; top:100%; display: block;}
     100% {left:77%; top:110%; display: none;}
 }
+.hash-algo>select{
+    width: 60%;
+    height: 30px;
+    border: 2px solid black;
+    cursor: pointer;
+    padding-left: 5px;
+}
+.hash-algo>select:focus{outline: none;}
 
 /*Options classes*/
 .options-container{margin: auto;}
@@ -199,37 +209,10 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
 }
 .options-body h2{margin: auto;}
 .options-body>h3{margin: 5px;}
-.options-body input{
-    width: 100%;
-    border:2px solid black;
-    height: 35px;
-    padding: 10px;
-}
-.options-body input:focus, .options-body select:focus{
-    box-shadow:0 0 0 2px rgba(0,123,255,.25);
-    border: 1px solid #80bdff;
-    outline: none;
-}
-.options-body select{
-    width: 80%;
-    height: 35px;
-    border: 2px solid black;
-    cursor: pointer;
-    padding-left: 5px;
-}
-.options-body button{
-    font-size: 16px;
-    margin: auto;
-    width: 120px;
-    height: 40px;
-    background-color: green;
-    margin-top: 15px;
-}
-.options-body button:hover{opacity: 0.8;}
-#master-success, #hash-success{color: green;}
-#masterError, #twoErrors{color: red;}
+#masterError{color: red;}
 .options-about{padding-bottom: 50px;}
 .options-about button{
+    font-size: 18px;
     color: black;
     width: 175px;
     height: 50px;
@@ -237,5 +220,6 @@ input, button, select, #tooltip-copy{border-radius: 5px;}
     border-radius: 0;
     background-color: rgba(0,0,0,0.1);
 }
+.options-about button:hover{opacity: 0.8;}
 .options-about a{margin-right: 20px;}
 .options-about a:last-child{margin-right: 0;}

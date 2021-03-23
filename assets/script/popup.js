@@ -1,13 +1,22 @@
 const body = document.querySelector("#body");
 const showHashAlgo = document.querySelector("#showHashAlgo");
 const passwordGenerator = document.querySelector("#passGen");
+const masterSet = document.querySelector("#masterSet");
+const masterInput = document.querySelector("#masterInput");
+const savedPassFeedback = document.querySelector("#masterSuccess");
 const nameInput = document.querySelector("#nameInput");
 const outputHash = document.querySelector("#outputHash");
 const copyImg = document.querySelector("#copy-to-clipboard");
 const masterPassError = document.querySelector("#masterError");
+const setHashAlgo = document.querySelector("#algoBtn");
+const savedHashFeedback = document.querySelector("#hashSuccess");
+const hashSelect = document.querySelector("#algo");
 const copyTooltip = document.querySelector("#tooltip-copy");
 const darkMode = document.querySelector("#checkMode");
 const modeSlider = document.querySelector(".mode-slider");
+const buttons = document.querySelectorAll(".popup-btns");
+const successFeedbacks = document.querySelectorAll(".popup-success");
+const inputs = document.querySelectorAll(".popup-inputs");
 let algo, master;
 
 //Get values in chrome storage and set default for the first time use
@@ -32,6 +41,7 @@ chrome.storage.sync.get(['master','algorithm','isDark'], function(vars){
         });
     }
     else {
+        document.getElementById(vars.algorithm).selected = true;
         showHashAlgo.textContent = vars.algorithm;
         algo = vars.algorithm;
         master = vars.master;
@@ -49,27 +59,41 @@ darkMode.addEventListener("change", function darkModeHandler(){
     }
 });
 
+//Apply dark mode classes to elements
 function setDarkThemeClasses(){
     body.classList.remove("light");
     body.classList.add("dark");
-    outputHash.classList.remove("input-lightMode");
-    outputHash.classList.add("input-darkMode");
-    nameInput.classList.remove("input-lightMode");
-    nameInput.classList.add("input-darkMode");
-    passwordGenerator.classList.remove("btn-lightMode");
-    passwordGenerator.classList.add("btn-darkMode");
+    for (i = 0; i < inputs.length; i++) {
+        inputs[i].classList.remove("input-lightMode");
+        inputs[i].classList.add("input-darkMode");
+    }
+    for (i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("btn-lightMode");
+        buttons[i].classList.add("btn-darkMode");
+    }
+    for (i = 0; i < successFeedbacks.length; i++) {
+        successFeedbacks[i].classList.remove("success-darkMode");
+        successFeedbacks[i].classList.add("success-lightMode");
+    }
     copyTooltip.classList.remove("tooltip-light");
     copyTooltip.classList.add("tooltip-dark");
 }
+//Apply light mode classes to elements
 function setLightThemeClasses(){
     body.classList.remove("dark");
     body.classList.add("light");
-    outputHash.classList.remove("input-darkMode");
-    outputHash.classList.add("input-lightMode");
-    nameInput.classList.remove("input-darkMode");
-    nameInput.classList.add("input-lightMode");
-    passwordGenerator.classList.remove("btn-darkMode");
-    passwordGenerator.classList.add("btn-lightMode");
+    for (i = 0; i < inputs.length; i++) {
+        inputs[i].classList.remove("input-darkMode");
+        inputs[i].classList.add("input-lightMode");
+    }
+    for (i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove("btn-darkMode");
+        buttons[i].classList.add("btn-lightMode");
+    }
+    for (i = 0; i < successFeedbacks.length; i++) {
+        successFeedbacks[i].classList.remove("success-darkMode");
+        successFeedbacks[i].classList.add("success-lightMode");
+    }
     copyTooltip.classList.remove("tooltip-dark");
     copyTooltip.classList.add("tooltip-light");
 }
@@ -117,4 +141,46 @@ copyImg.addEventListener("click",function copyToClipboard(){
             copyTooltip.classList.remove("create");
         },900);        
     }
+});
+
+//Set master password
+masterSet.addEventListener("click",function(){
+    if(masterInput.value){
+        chrome.storage.sync.set({'master': masterInput.value});
+
+        masterInput.value="";
+
+        savedPassFeedback.classList.remove("hide");
+        savedPassFeedback.classList.add("show");
+
+        setTimeout(function(){
+            savedPassFeedback.classList.add("fade");
+        },1000);
+
+        setTimeout(function(){
+            savedPassFeedback.classList.remove("show");
+            savedPassFeedback.classList.add("hide");
+            savedPassFeedback.classList.remove("fade");
+        },2500);
+    }
+});
+
+//Set hashing algorithm
+setHashAlgo.addEventListener("click",function(){
+    if(hashSelect.value){
+        chrome.storage.sync.set({'algorithm': hashSelect.value});
+    }
+
+    savedHashFeedback.classList.remove("hide");
+    savedHashFeedback.classList.add("show");
+
+    setTimeout(function(){
+        savedHashFeedback.classList.add("fade");
+    },1000);
+
+    setTimeout(function(){
+        savedHashFeedback.classList.remove("show");
+        savedHashFeedback.classList.add("hide");
+        savedHashFeedback.classList.remove("fade");
+    },2500);
 });
