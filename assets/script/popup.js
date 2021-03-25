@@ -1,4 +1,4 @@
-const body = document.querySelector("#body");
+const body = document.querySelector("body");
 const showHashAlgo = document.querySelector("#showHashAlgo");
 const passwordGenerator = document.querySelector("#passGen");
 const masterSet = document.querySelector("#masterSet");
@@ -63,39 +63,41 @@ darkMode.addEventListener("change", function darkModeHandler(){
 function setDarkThemeClasses(){
     body.classList.remove("light");
     body.classList.add("dark");
-    for (i = 0; i < inputs.length; i++) {
+    for (i=0; i<inputs.length; i++) {
         inputs[i].classList.remove("input-lightMode");
         inputs[i].classList.add("input-darkMode");
     }
-    for (i = 0; i < buttons.length; i++) {
+    for (i=0; i<buttons.length; i++) {
         buttons[i].classList.remove("btn-lightMode");
         buttons[i].classList.add("btn-darkMode");
     }
-    for (i = 0; i < successFeedbacks.length; i++) {
+    for (i=0; i<successFeedbacks.length; i++) {
         successFeedbacks[i].classList.remove("success-darkMode");
         successFeedbacks[i].classList.add("success-lightMode");
     }
     copyTooltip.classList.remove("tooltip-light");
     copyTooltip.classList.add("tooltip-dark");
+    copyImg.src="./assets/images/copy-dark.png";
 }
 //Apply light mode classes to elements
 function setLightThemeClasses(){
     body.classList.remove("dark");
     body.classList.add("light");
-    for (i = 0; i < inputs.length; i++) {
+    for (i=0; i<inputs.length; i++) {
         inputs[i].classList.remove("input-darkMode");
         inputs[i].classList.add("input-lightMode");
     }
-    for (i = 0; i < buttons.length; i++) {
+    for (i=0; i<buttons.length; i++) {
         buttons[i].classList.remove("btn-darkMode");
         buttons[i].classList.add("btn-lightMode");
     }
-    for (i = 0; i < successFeedbacks.length; i++) {
+    for (i=0; i<successFeedbacks.length; i++) {
         successFeedbacks[i].classList.remove("success-darkMode");
         successFeedbacks[i].classList.add("success-lightMode");
     }
     copyTooltip.classList.remove("tooltip-dark");
     copyTooltip.classList.add("tooltip-light");
+    copyImg.src="./assets/images/copy-light.png";
 }
 
 //Generate password
@@ -170,6 +172,8 @@ setHashAlgo.addEventListener("click",function(){
     if(hashSelect.value){
         chrome.storage.sync.set({'algorithm': hashSelect.value});
     }
+
+    showHashAlgo.textContent = hashSelect.value;
 
     savedHashFeedback.classList.remove("hide");
     savedHashFeedback.classList.add("show");

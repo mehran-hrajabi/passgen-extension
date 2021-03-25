@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="./assets/stylesheet/style.css">
 </head>
 
-<body id="body">
+<body>
     <div class="popup-container">
         <!--Popup Header-->
         <div class="popup-header center-vertically space-horizontally">
@@ -28,13 +28,13 @@
             <span id="showHashAlgo"></span>
 
             <div class="input-container">
-                <input type="text" id="nameInput" placeholder="Enter any name">
+                <input class="popup-inputs" type="text" id="nameInput" placeholder="Enter any name">
                 <button class="popup-btns" type="button" id="passGen">Generate</button>
             </div>
 
             <div class="output-container center-vertically">
                 <input class="popup-inputs" type="text" id="outputHash"  readonly>
-                <img id="copy-to-clipboard" src="./assets/images/copy.png">
+                <img id="copy-to-clipboard">
                 <span class="remove" id="tooltip-copy">Copied!</span>
             </div>
 
