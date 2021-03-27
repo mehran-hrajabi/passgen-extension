@@ -23,43 +23,56 @@
         </div>
 
         <!--Generate Password-->
-        <div class="pass-generator">
-            <span>Current hashing algorithm:</span>
-            <span id="showHashAlgo"></span>
+        <button class="accordion">Generate Password</button>
+        <div class="panel">
+            <div class="pass-generator">
+                <span>Current hashing algorithm:</span>
+                <span id="showHashAlgo"></span>
 
-            <div class="input-container">
-                <input class="popup-inputs" type="text" id="nameInput" placeholder="Enter any name">
-                <button class="popup-btns" type="button" id="passGen">Generate</button>
+                <div>
+                    <input class="popup-inputs" type="text" id="nameInput" placeholder="Enter any name">
+                    <button class="popup-btns" type="button" id="passGen">Generate</button>
+                </div>
+
+                <div class="output-container center-vertically">
+                    <input class="popup-inputs" type="text" id="outputHash" readonly>
+                    <img id="copy-to-clipboard">
+                    <span class="remove" id="tooltip-copy">Copied!</span>
+                </div>
+
+                <p class="remove" id="masterError">You should set your master password first!</p>                
             </div>
-
-            <div class="output-container center-vertically">
-                <input class="popup-inputs" type="text" id="outputHash"  readonly>
-                <img id="copy-to-clipboard">
-                <span class="remove" id="tooltip-copy">Copied!</span>
-            </div>
-
-            <p class="remove" id="masterError">You should set your master password first!</p>
         </div>
 
         <!--Set Master Password-->
-        <div class="master-pass">
-            <h2>Set Master Password</h2>
-            <input class="popup-inputs" id="masterInput" type="text" value="" placeholder="Enter your master pass">
-            <button class="popup-btns" id="masterSet" type="button">Save</button>
-            <p class="hide popup-success" id="masterSuccess">Your master password has been saved!</p>
+        <button class="accordion">Set Master Password</button>
+        <div class="panel">
+            <div class="master-pass">
+                <span>Set your master password here.</span>
+                <div>
+                    <input class="popup-inputs" id="masterInput" type="text" value="" placeholder="Enter your master pass">
+                    <button class="popup-btns" id="masterSet" type="button">Save</button>
+                </div>
+                <p class="remove popup-success" id="masterSuccess">Your master password has been saved!</p> 
+            </div>
         </div>
 
         <!--Set Hashing Algorithm-->
-        <div class="hash-algo">
-            <h2>Choose Hashing Algorithm</h2>
-            <select class="popup-inputs" id="algo">
-                <option value="SHA-1" id="SHA-1">SHA-1</option>
-                <option value="SHA-256" id="SHA-256">SHA-256</option>
-                <option value="SHA-384" id="SHA-384">SHA-384</option>
-                <option value="SHA-512" id="SHA-512">SHA-512</option>
-            </select>
-            <button class="popup-btns" id="algoBtn" type="button">Save</button>
-            <p class="hide popup-success" id="hashSuccess">Hashing algorithm has been set!</p>
+        <button class="accordion">Set Hashing Algorithm</button>
+        <div class="panel">
+            <div class="hash-algo">
+                <span>Set your hashing algorithm here.</span>
+                <div>
+                    <select class="popup-inputs" id="algo">
+                        <option value="SHA-1" id="SHA-1">SHA-1</option>
+                        <option value="SHA-256" id="SHA-256">SHA-256</option>
+                        <option value="SHA-384" id="SHA-384">SHA-384</option>
+                        <option value="SHA-512" id="SHA-512">SHA-512</option>
+                    </select>
+                    <button class="popup-btns" id="algoBtn" type="button">Save</button>                    
+                </div>
+                <p class="remove popup-success" id="hashSuccess">Hashing algorithm has been set!</p>
+            </div>
         </div>
     </div>
 </body>

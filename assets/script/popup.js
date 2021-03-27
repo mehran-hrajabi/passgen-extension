@@ -17,6 +17,7 @@ const modeSlider = document.querySelector(".mode-slider");
 const buttons = document.querySelectorAll(".popup-btns");
 const successFeedbacks = document.querySelectorAll(".popup-success");
 const inputs = document.querySelectorAll(".popup-inputs");
+const menuItems = document.getElementsByClassName("accordion");
 let algo, master;
 
 //Get values in chrome storage and set default for the first time use
@@ -63,6 +64,10 @@ darkMode.addEventListener("change", function darkModeHandler(){
 function setDarkThemeClasses(){
     body.classList.remove("light");
     body.classList.add("dark");
+    for (i=0; i<menuItems.length; i++) {
+        menuItems[i].classList.remove("lightMode-accordion");
+        menuItems[i].classList.add("darkMode-accordion");
+    }
     for (i=0; i<inputs.length; i++) {
         inputs[i].classList.remove("input-lightMode");
         inputs[i].classList.add("input-darkMode");
@@ -83,6 +88,10 @@ function setDarkThemeClasses(){
 function setLightThemeClasses(){
     body.classList.remove("dark");
     body.classList.add("light");
+    for (i=0; i<menuItems.length; i++) {
+        menuItems[i].classList.remove("darkMode-accordion");
+        menuItems[i].classList.add("lightMode-accordion");
+    }
     for (i=0; i<inputs.length; i++) {
         inputs[i].classList.remove("input-darkMode");
         inputs[i].classList.add("input-lightMode");
@@ -98,6 +107,20 @@ function setLightThemeClasses(){
     copyTooltip.classList.remove("tooltip-dark");
     copyTooltip.classList.add("tooltip-light");
     copyImg.src="./assets/images/copy-light.png";
+}
+
+//Accordion menu event listeners
+for(i=0; i<menuItems.length; i++){
+    menuItems[i].addEventListener("click", function(){
+        let panel = this.nextElementSibling;
+        this.classList.toggle("active");
+
+        if(panel.style.maxHeight){
+            panel.style.maxHeight = null;
+        } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+        }
+    });
 }
 
 //Generate password
@@ -152,16 +175,16 @@ masterSet.addEventListener("click",function(){
 
         masterInput.value="";
 
-        savedPassFeedback.classList.remove("hide");
-        savedPassFeedback.classList.add("show");
+        savedPassFeedback.classList.remove("remove");
+        savedPassFeedback.classList.add("create");
 
         setTimeout(function(){
             savedPassFeedback.classList.add("fade");
         },1000);
 
         setTimeout(function(){
-            savedPassFeedback.classList.remove("show");
-            savedPassFeedback.classList.add("hide");
+            savedPassFeedback.classList.remove("create");
+            savedPassFeedback.classList.add("remove");
             savedPassFeedback.classList.remove("fade");
         },2500);
     }
@@ -175,16 +198,16 @@ setHashAlgo.addEventListener("click",function(){
 
     showHashAlgo.textContent = hashSelect.value;
 
-    savedHashFeedback.classList.remove("hide");
-    savedHashFeedback.classList.add("show");
+    savedHashFeedback.classList.remove("remove");
+    savedHashFeedback.classList.add("create");
 
     setTimeout(function(){
         savedHashFeedback.classList.add("fade");
     },1000);
 
     setTimeout(function(){
-        savedHashFeedback.classList.remove("show");
-        savedHashFeedback.classList.add("hide");
+        savedHashFeedback.classList.remove("create");
+        savedHashFeedback.classList.add("remove");
         savedHashFeedback.classList.remove("fade");
     },2500);
 });

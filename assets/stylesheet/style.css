@@ -5,6 +5,7 @@
     font-weight: normal;
     box-sizing : border-box;
 }
+body{margin: 5px 0;}
 input, p , a, ::placeholder{font-size: 16px;}
 h1,h2,h3{font-weight: bold;}
 button{
@@ -14,9 +15,7 @@ button{
     border-radius: 5px;
 }
 
-/*Utility classes*/
-.show{visibility: visible;}
-.hide{visibility: hidden;}
+/*Utility styles*/
 .remove{display: none;}
 .create{display: block;}
 .fade{
@@ -24,7 +23,7 @@ button{
     transition: opacity 1500ms;
 }
 
-/*CSS flex classes*/
+/*CSS flex styles*/
 .center-vertically{
     display: flex;
     align-items: center;
@@ -36,7 +35,7 @@ button{
 .space-horizontally{justify-content: space-between;}
 .flex-col{flex-direction: column;}
 
-/*Dark and light mode classes*/
+/*Dark and light mode styles*/
 .dark{
     color: #F2F2F2;
     background-color: #121212;
@@ -87,21 +86,24 @@ button{
     border: 5px solid #121212;
     border-color: transparent transparent #121212 transparent;
 }
+.lightMode-accordion{
+    background-color: #eee;
+    color: #121212;
+}
+.lightMode-accordion::after{color: #777;}
+.lightMode-accordion:hover{background-color: #ccc;}
+.darkMode-accordion{
+    background-color: #121212;
+    color: #ccc;
+}
+.darkMode-accordion::after{color: #ccc;}
+.darkMode-accordion:hover{
+    color: #F2F2F2;
+    border-bottom: 1px solid #F2F2F2;
+}
+.darkMode-accordion:hover::after{color: #F2F2F2;}
 
-/*Extension classes*/
-.popup-container{
-    padding: 10px;
-    width: 300px;
-    height: 400px;
-}
-.popup-header h2{
-    font-style: oblique;
-    color: orange;
-}
-.popup-header span{
-    font-size: 14px;
-    font-style: oblique;
-}
+/*Dark mode slider styles*/
 .mode-switch{
     position: relative;
     display: inline-block;
@@ -132,41 +134,37 @@ button{
 .popup-header input:checked + .mode-slider::before{transform: translateX(14px);}
 .round{border-radius: 25px;}
 .round::before{border-radius: 80%;}
-.pass-generator span:first-child, .pass-generator span:nth-child(2){font-size: 16px;}
-.pass-generator span:nth-child(2){font-style: italic;}
-.pass-generator p{color: red;}
-.popup-container input[type=text]{
-    height: 30px;
-    padding: 5px;
-    width: 60%;
+
+/*Accordion menu styles*/
+.accordion{
+    padding: 0 15px;
+    width: 100%;
+    height: 40px;
+    text-align: left;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 0;
 }
-.popup-container input[type=text]:read-only{width: 100%;}
-.popup-container input[type=text]:focus{outline: none;}
-.popup-container button{
-    margin: auto;
-    width: 80px;
-    height: 30px;
+.accordion::after {
+    content: '\276F';
+    font-weight: bold;
+    float: right;
     margin-left: 5px;
-    font-size: 14px;
+    transition: all 0.2s;
 }
-.input-container{margin-top: 10px;}
-.output-container{
-    position: relative;
-    margin-top: 10px;
+/*.active{background-color: #ccc;}*/
+.active::after{transform: rotate(90deg);}
+.panel{
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
 }
-.output-container img{
-    z-index: 2;
-    margin-left: -25px;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    background-color: white;
-}
-.output-container img:active{
-    width: 19px;
-    height: 19px;
-}
-.output-container > span{
+.popup-success{margin: 0;}
+
+/*Tooltip styles*/
+#tooltip-copy{
     position: absolute;
     text-align: center;
     width: 60px;
@@ -181,7 +179,7 @@ button{
     animation-duration: 1s;
     animation-timing-function: ease;
 }
-.output-container > span::after{
+#tooltip-copy::after{
     content: "";
     position: absolute;
     bottom: 100%;
@@ -194,15 +192,62 @@ button{
     75%  {left:77%; top:100%; display: block;}
     100% {left:77%; top:110%; display: none;}
 }
-.hash-algo>select{
+
+/*Extension styles*/
+.popup-container{width: 300px;}
+.popup-header{padding: 10px;}
+.popup-header h2{
+    font-style: oblique;
+    color: orange;
+}
+.popup-header span{
+    font-size: 14px;
+    font-style: oblique;
+}
+.pass-generator{padding: 15px 0 40px 0;}
+.pass-generator span:first-child, #showHashAlgo{font-size: 16px;}
+#showHashAlgo{font-style: italic;}
+#masterError{color: red;}
+.master-pass, .hash-algo{padding: 15px 0 30px 0;}
+.master-pass>div, .hash-algo>div{margin: 10px 0;}
+.master-pass span, .hash-algo span{font-size: 16px;}
+.popup-container input[type=text]{
+    height: 30px;
+    padding: 5px;
+    width: 65%;
+}
+.popup-container input[type=text]:focus{outline: none;}
+.popup-container input[type=text]:read-only{width: 100%;}
+.popup-btns{
+    margin: auto;
+    width: 80px;
+    height: 30px;
+    margin-left: 5px;
+    font-size: 14px;
+}
+.pass-generator>div{margin-top: 10px;}
+.output-container{position: relative;}
+.output-container img{
+    z-index: 2;
+    margin-left: -25px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    background-color: white;
+}
+.output-container img:active{
+    width: 19px;
+    height: 19px;
+}
+#algo{
     width: 60%;
     height: 30px;
     cursor: pointer;
     padding-left: 5px;
 }
-.hash-algo>select:focus{outline: none;}
+#algo:focus{outline: none;}
 
-/*Options classes*/
+/*Options styles*/
 .options-container{margin: auto;}
 .options-body{
     margin: auto;
