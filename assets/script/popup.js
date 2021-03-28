@@ -18,7 +18,7 @@ const buttons = document.querySelectorAll(".popup-btns");
 const successFeedbacks = document.querySelectorAll(".popup-success");
 const inputs = document.querySelectorAll(".popup-inputs");
 const menuItems = document.getElementsByClassName("accordion");
-let algo, master;
+let algo, master, isDark;
 
 //Get values in chrome storage and set default for the first time use
 chrome.storage.sync.get(['master','algorithm','isDark'], function(vars){
@@ -33,6 +33,7 @@ chrome.storage.sync.get(['master','algorithm','isDark'], function(vars){
     else if(!vars.isDark){
         setLightThemeClasses();
     }
+    isDark = vars.isDark;
     
     //Hashing algorithm and master password
     if(vars.algorithm == undefined){
@@ -108,12 +109,17 @@ function setLightThemeClasses(){
     copyTooltip.classList.add("tooltip-light");
     copyImg.src="./assets/images/copy-light.png";
 }
-
-//Accordion menu event listeners
+//Accordion menu event listener
 for(i=0; i<menuItems.length; i++){
     menuItems[i].addEventListener("click", function(){
         let panel = this.nextElementSibling;
-        this.classList.toggle("active");
+        
+        if(isDark){
+            this.classList.toggle("darkMode-activeAccordion");
+        }
+        else{
+            this.classList.toggle("lightMode-activeAccordion");
+        }
 
         if(panel.style.maxHeight){
             panel.style.maxHeight = null;
