@@ -45,19 +45,17 @@ button{
     background-color: white;
 }
 .input-darkMode{
-    color: #f2f2f2;
+    color: #c4c4c4;
     background-color: #121212;
-    border-right: none;
-    border-left: none;
-    border-top: none;
     border-bottom: 1px solid #F2F2F2;
 }
-.input-darkMode::placeholder{color: #F2F2F2;}
+.input-darkMode::placeholder{color: #c4c4cc;}
 .input-lightMode{
-    border-radius: 5px;
-    border: 2px solid black;
+    color: #494949;
     background-color: white;
+    border-bottom: 1px solid #121212;
 }
+.input-lightMode::placeholder{color: #494949;}
 .btn-darkMode{
     background-color: #238636;
     border: 1px solid #2ea043;
@@ -144,6 +142,7 @@ button{
     color: #ccc;
 }
 .darkMode-activeAccordion, .darkMode-accordion:hover{
+    background-color: #c4c4c450;
     color: #F2F2F2;
     border: 1px solid #F2F2F2;
 }
@@ -208,7 +207,10 @@ button{
     font-style: oblique;
 }
 .pass-generator{padding: 15px 0 40px 0;}
-.pass-generator span:first-child, #showHashAlgo{font-size: 16px;}
+.pass-generator span:first-child, #showHashAlgo{
+    font-weight: bold;
+    font-size: 16px;
+}
 #showHashAlgo{font-style: italic;}
 #masterError{color: red;}
 .master-pass, .hash-algo{padding: 15px 0 30px 0;}
@@ -221,6 +223,11 @@ button{
 }
 .popup-container input[type=text]:focus{outline: none;}
 .popup-container input[type=text]:read-only{width: 100%;}
+.popup-inputs{
+    border-right: none;
+    border-left: none;
+    border-top: none;
+}
 .popup-btns{
     margin: auto;
     width: 80px;
@@ -254,7 +261,7 @@ button{
 .options-container{margin: auto;}
 .options-body{
     margin: auto;
-    border: 2px solid black;
+    border: 2px solid #121212;
     border-radius: 40px;
     padding: 20px;
     width: 800px;

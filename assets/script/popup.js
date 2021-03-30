@@ -21,34 +21,37 @@ const menuItems = document.getElementsByClassName("accordion");
 let algo, master, isDark;
 
 //Get values in chrome storage and set default for the first time use
-chrome.storage.sync.get(['master','algorithm','isDark'], function(vars){
-    //Dark mode
-    if(vars.isDark == undefined){
-        chrome.storage.sync.set({'isDark': false});
-    }
-    if(vars.isDark){
-        darkMode.checked = true;
-        setDarkThemeClasses();
-    }
-    else if(!vars.isDark){
-        setLightThemeClasses();
-    }
-    isDark = vars.isDark;
-    
-    //Hashing algorithm and master password
-    if(vars.algorithm == undefined){
-        chrome.storage.sync.set({'algorithm': 'SHA-256'}, function(){
-            showHashAlgo.textContent = 'SHA-256';
-            algo = 'SHA-256';
-        });
-    }
-    else {
-        document.getElementById(vars.algorithm).selected = true;
-        showHashAlgo.textContent = vars.algorithm;
-        algo = vars.algorithm;
-        master = vars.master;
-    }
-});
+function setValues(){
+    chrome.storage.sync.get(['master','algorithm','isDark'], function(vars){
+        //Dark mode
+        if(vars.isDark == undefined){
+            chrome.storage.sync.set({'isDark': false});
+        }
+        if(vars.isDark){
+            darkMode.checked = true;
+            setDarkThemeClasses();
+        }
+        else if(!vars.isDark){
+            setLightThemeClasses();
+        }
+        isDark = vars.isDark;
+        
+        //Hashing algorithm and master password
+        if(vars.algorithm == undefined){
+            chrome.storage.sync.set({'algorithm': 'SHA-256'}, function(){
+                showHashAlgo.textContent = 'SHA-256';
+                algo = 'SHA-256';
+            });
+        }
+        else {
+            document.getElementById(vars.algorithm).selected = true;
+            showHashAlgo.textContent = vars.algorithm;
+            algo = vars.algorithm;
+            master = vars.master;
+        }
+    });    
+}
+setValues();
 
 //Enable or disable dark mode
 darkMode.addEventListener("change", function darkModeHandler(){
@@ -63,11 +66,16 @@ darkMode.addEventListener("change", function darkModeHandler(){
 
 //Apply dark mode classes to elements
 function setDarkThemeClasses(){
+    isDark=true;
     body.classList.remove("light");
     body.classList.add("dark");
     for (i=0; i<menuItems.length; i++) {
         menuItems[i].classList.remove("lightMode-accordion");
         menuItems[i].classList.add("darkMode-accordion");
+        if(menuItems[i].classList.contains("lightMode-activeAccordion")){
+            menuItems[i].classList.remove("lightMode-activeAccordion");
+            menuItems[i].classList.add("darkMode-activeAccordion");
+        }
     }
     for (i=0; i<inputs.length; i++) {
         inputs[i].classList.remove("input-lightMode");
@@ -87,11 +95,16 @@ function setDarkThemeClasses(){
 }
 //Apply light mode classes to elements
 function setLightThemeClasses(){
+    isDark=false;
     body.classList.remove("dark");
     body.classList.add("light");
     for (i=0; i<menuItems.length; i++) {
         menuItems[i].classList.remove("darkMode-accordion");
         menuItems[i].classList.add("lightMode-accordion");
+        if(menuItems[i].classList.contains("darkMode-activeAccordion")){
+            menuItems[i].classList.remove("darkMode-activeAccordion");
+            menuItems[i].classList.add("lightMode-activeAccordion");
+        }
     }
     for (i=0; i<inputs.length; i++) {
         inputs[i].classList.remove("input-darkMode");
@@ -194,6 +207,8 @@ masterSet.addEventListener("click",function(){
             savedPassFeedback.classList.remove("fade");
         },2500);
     }
+
+    setValues();
 });
 
 //Set hashing algorithm
@@ -216,4 +231,6 @@ setHashAlgo.addEventListener("click",function(){
         savedHashFeedback.classList.add("remove");
         savedHashFeedback.classList.remove("fade");
     },2500);
+
+    setValues();
 });
