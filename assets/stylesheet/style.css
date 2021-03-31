@@ -1,6 +1,6 @@
 /*Universal styles*/
 *{
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: normal;
     box-sizing : border-box;
@@ -107,8 +107,8 @@ button{
     width: 100%;
     height: 40px;
     text-align: left;
-    font-weight: bold;
     border: none;
+    font-weight: 500;
     font-size: 16px;
     border-radius: 0;
 }
@@ -208,7 +208,7 @@ button{
 }
 .pass-generator{padding: 15px 0 40px 0;}
 .pass-generator span:first-child, #showHashAlgo{
-    font-weight: bold;
+    font-weight: 500;
     font-size: 16px;
 }
 #showHashAlgo{font-style: italic;}
@@ -219,7 +219,7 @@ button{
 .popup-container input[type=text]{
     height: 30px;
     padding: 5px;
-    width: 65%;
+    width: 66%;
 }
 .popup-container input[type=text]:focus{outline: none;}
 .popup-container input[type=text]:read-only{width: 100%;}
@@ -280,10 +280,12 @@ button{
 .options-body h2{margin: auto;}
 .options-body>h3{margin: 5px;}
 .options-about{padding-bottom: 50px;}
+.options-about li{font-size: 16px;}
+.options-about > div{margin-top: 50px;}
 .options-about button{
     font-size: 18px;
     color: black;
-    width: 175px;
+    width: 200px;
     height: 50px;
     border: 2px solid #ccc;
     background-color: rgba(0,0,0,0.1);
