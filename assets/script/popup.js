@@ -20,6 +20,24 @@ const inputs = document.querySelectorAll(".popup-inputs");
 const menuItems = document.getElementsByClassName("accordion");
 let algo, master, isDark;
 
+//Get the current tab url to set as a default for generating password
+chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    let linkElement = document.createElement('a');
+    linkElement.setAttribute('href', tabs[0].url);
+    url = linkElement.hostname;
+
+    if(url.slice(0,4) === "www."){
+        url = url.slice(4);
+    }
+    for(let i=3; i<6; i++){
+        if(url.slice(url.length-i, url.length).charAt(0) === "."){
+            url = url.slice(0, url.length-i)
+            break;
+        }
+    }
+    nameInput.value = url;
+});
+
 //Get values in chrome storage and set default for the first time use
 function setValues(){
     chrome.storage.sync.get(['master','algorithm','isDark'], function(vars){
@@ -122,9 +140,13 @@ function setLightThemeClasses(){
     copyTooltip.classList.add("tooltip-light");
     copyImg.src="./assets/images/copy-light.png";
 }
+
 //Accordion menu event listener
 for(i=0; i<menuItems.length; i++){
     menuItems[i].addEventListener("click", function(){
+        if(this.textContent === "Generate Password"){
+            nameInput.focus();
+        }
         let panel = this.nextElementSibling;
         
         if(isDark){
