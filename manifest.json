@@ -1,14 +1,14 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "Passgen",
-    "version": "1.0",
+    "version": "1.2",
     "description": "A password generator chrome extension!",
     "icons": {
         "128": "./assets/images/icon128.png",
         "48": "./assets/images/icon48.png",
         "16": "./assets/images/icon16.png"
     },
-    "browser_action":{
+    "action":{
         "default_icon": "./assets/images/icon128.png",
         "default_popup": "popup.html"
     },
