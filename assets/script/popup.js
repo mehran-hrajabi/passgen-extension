@@ -183,7 +183,7 @@ passwordGenerator.addEventListener("click",async function(){
     else{
         let concatStrings = master.concat(nameInput.value);
         const digestHex = await digestMessage(concatStrings);
-        outputHash.value = digestHex;        
+        outputHash.value = digestHex;  
     }
 });
 async function digestMessage(message) {
